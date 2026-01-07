@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+
+golr = "Game_Of_Life_Return.main:main"
+
+
+[project]
+name = "Game_Of_Life_Return"
+version = "0.1.0"
+description = "Look at the name file"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name in april ", email = "you@example.com" }
+]
+
+dependencies = [
+    # "requests>=2.31.0",
+    "numpy"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "black>=24.0",
+    "ruff>=0.3",
+    "mypy>=1.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourname/your_project"
+Issues = "https://github.com/yourname/your_project/issues"
+
+# -------------------------
+# Tool configurations
+# -------------------------
+
+[tool.setuptools]
+packages = { find = {} }
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = [
+    "--import-mode=importlib"
+    ,"-ra -q"]
+testpaths = ["tests"]
